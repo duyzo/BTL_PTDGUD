@@ -29,18 +29,25 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       console.error('Failed to parse users db', e);
     }
     
-    const adminIndex = users.findIndex(u => u.email === 'admin@toykingdom.com');
-    if (adminIndex === -1) {
-      users.push({
-        id: 'admin-001',
-        name: 'Admin User',
-        email: 'admin@toykingdom.com',
-        password: 'admin123',
-        role: 'admin'
-      });
-      localStorage.setItem('toy_users_db', JSON.stringify(users));
-    } else if (users[adminIndex].password !== 'admin123') {
-      users[adminIndex].password = 'admin123';
+    const defaultUsers: UserAccount[] = [
+      { id: 'admin-001', name: 'Admin User', email: 'admin@toykingdom.com', password: 'admin123', role: 'admin' },
+      { id: 'user-duy', name: 'Duy', email: 'duy@gmail.com', password: '123456', role: 'user' },
+      { id: 'user-hung', name: 'Hung', email: 'katio@gmail.com', password: '123456', role: 'user' }
+    ];
+
+    let usersModified = false;
+    defaultUsers.forEach(defUser => {
+      const idx = users.findIndex(u => u.email === defUser.email);
+      if (idx === -1) {
+        users.push(defUser);
+        usersModified = true;
+      } else if (users[idx].password !== defUser.password) {
+        users[idx].password = defUser.password;
+        usersModified = true;
+      }
+    });
+
+    if (usersModified) {
       localStorage.setItem('toy_users_db', JSON.stringify(users));
     }
 
