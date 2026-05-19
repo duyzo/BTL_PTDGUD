@@ -40,8 +40,6 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col gap-2 pt-2">
                   <span className="text-sm text-slate-400"><strong>CN1:</strong> 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp, TP. Hồ Chí Minh</span>
-                  <span className="text-sm text-slate-400"><strong>CN2:</strong> 245 Nguyễn Trãi, P. Nguyễn Cư Trinh, Q.1, TP. Hồ Chí Minh</span>
-                  <span className="text-sm text-slate-400"><strong>CN3:</strong> 102 Crescent Mall, Quận 7, TP. Hồ Chí Minh</span>
                 </div>
               </li>
               <li className="flex items-center gap-4 group">

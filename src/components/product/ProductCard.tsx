@@ -15,13 +15,13 @@ export const ProductCard = ({ product }: { product: Product }) => {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col h-full">
       {/* Image Container */}
-      <div className="relative aspect-square overflow-hidden bg-gray-50 flex-shrink-0 flex items-center justify-center">
+      <div className="relative h-56 overflow-hidden bg-gray-50 flex-shrink-0 flex items-center justify-center">
         <Link href={`/products/${product.slug}`} className="absolute inset-0">
           <Image 
             src={imgSrc} 
             alt={product.name} 
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             onError={() => {
               setImgSrc(`https://placehold.co/600x600/f8fafc/94a3b8?text=${encodeURIComponent(product.category.toUpperCase())}`);
