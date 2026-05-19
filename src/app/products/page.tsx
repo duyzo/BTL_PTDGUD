@@ -79,13 +79,17 @@ function ProductsContent() {
   }
 
   if (sortQuery === 'price-asc') {
-    filtered.sort((a, b) => a.price - b.price);
+    filtered.sort((a, b) => (a.price - b.price) || (b.sold - a.sold));
   } else if (sortQuery === 'price-desc') {
-    filtered.sort((a, b) => b.price - a.price);
+    filtered.sort((a, b) => (b.price - a.price) || (b.sold - a.sold));
   } else if (sortQuery === 'best-seller') {
-    filtered.sort((a, b) => b.sold - a.sold);
+    filtered.sort((a, b) => (b.sold - a.sold) || (a.price - b.price));
   } else if (sortQuery === 'rating') {
-    filtered.sort((a, b) => b.rating - a.rating);
+    filtered.sort((a, b) => (b.rating - a.rating) || (b.sold - a.sold));
+  } else if (sortQuery === 'name-asc') {
+    filtered.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortQuery === 'name-desc') {
+    filtered.sort((a, b) => b.name.localeCompare(a.name));
   }
 
   const totalItems = filtered.length;
@@ -141,6 +145,8 @@ function ProductsContent() {
                 <option value="price-desc">Giá: Cao đến thấp</option>
                 <option value="best-seller">Bán chạy nhất</option>
                 <option value="rating">Đánh giá cao nhất</option>
+                <option value="name-asc">Tên: A - Z</option>
+                <option value="name-desc">Tên: Z - A</option>
               </select>
               <ChevronDown size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
             </div>

@@ -17,7 +17,7 @@ export default async function Home() {
 
   const bestSellers = [...productList].sort((a, b) => b.sold - a.sold).slice(0, 8);
   const flashSales = [...productList].filter(p => (p.discount || 0) >= 15).slice(0, 4);
-  const newArrivals = productList.slice(productList.length - 8).reverse();
+  const newArrivals = [...productList].slice(-8).reverse();
 
   return (
     <div className="pb-16">
