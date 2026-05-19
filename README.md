@@ -4,7 +4,7 @@ Dự án bài tập lớn môn **Phát triển giao diện ứng dụng**.
 Đây là ứng dụng Web giả lập cửa hàng bán đồ chơi trẻ em, được xây dựng theo chuẩn kiến trúc hiện đại, đáp ứng đầy đủ 100% các yêu cầu MVP của môn học.
 
 ## 🔗 Link Demo & Tài khoản
-- **Link Website**: *(Sẽ cập nhật sau khi deploy)*
+- **Link Website**: https://btl-ptdgud.vercel.app/
 - **Tài khoản Admin (dùng để test Dashboard)**:
   - **Email**: `admin@toykingdom.com`
   - **Password**: `admin123`
